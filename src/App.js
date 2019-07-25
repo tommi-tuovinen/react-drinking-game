@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.sass';
+import Card from './components/Card'
 
 function App() {
   return (
     <div className="App">
-      <h2>Todo</h2>
+      <Card />
     </div>
   );
 }
