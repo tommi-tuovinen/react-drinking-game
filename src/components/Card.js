@@ -5,7 +5,7 @@ class Card extends React.Component {
     render() {
         return (
             <div className="card">
-                <p>Card</p>
+                <p>{this.props.suit} {this.props.rank}</p>
         </div>
         )
     }
