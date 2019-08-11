@@ -30,14 +30,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Card 
         color={this.state.currentCard.color} 
         suit={this.state.currentCard.suit} 
         rank={this.state.currentCard.rank} 
         rule={this.state.currentCard.rule}  />
-        <button onClick={this.drawNewCard}>
-          Draw new card
+        <button className="button-draw" onClick={this.drawNewCard}>
+          DRAW
         </button>
       </div>
     )
