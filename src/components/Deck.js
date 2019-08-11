@@ -10,13 +10,27 @@ class Deck {
             { symbol: '♥', color: 'red' },
             { symbol: '♦', color: 'red' },
             { symbol: '♣', color: 'black' }
-        ];
-        const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+        ]
+        const ranks = [
+            { value: 'A', rule: 'Waterfall'},
+            { value: '2', rule: 'You'},
+            { value: '3', rule: 'Me'},
+            { value: '4', rule: 'Hit the floor'},
+            { value: '5', rule: 'Guys'},
+            { value: '6', rule: 'Chicks'},
+            { value: '7', rule: 'Heaven'},
+            { value: '8', rule: 'Mate'},
+            { value: '9', rule: 'Rhyme'},
+            { value: '10', rule: 'Categories'},
+            { value: 'J', rule: 'Never have I ever...'},
+            { value: 'Q', rule: 'Questions'},
+            { value: 'K', rule: 'King\'s Cup + New rule'}
+        ]    
 
         let cards = []
         for (let suit of suits) {
             for (let rank of ranks) {
-                cards.push({ suit: suit.symbol, rank: rank, color: suit.color })
+                cards.push({ suit: suit.symbol, rank: rank.value, color: suit.color, rule: rank.rule })
             }
         }
         return cards

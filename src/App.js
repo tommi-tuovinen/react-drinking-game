@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      currentCard: { color: 'black', suit: '-', rank: '-'},
+      currentCard: { color: 'black', suit: '-', rank: '-', rule: ''},
       deck: new Deck(),
     }
   }
@@ -22,6 +22,7 @@ class App extends React.Component {
           color: card.color,
           suit: card.suit,
           rank: card.rank,
+          rule: card.rule
         }
       }
     })
@@ -33,7 +34,8 @@ class App extends React.Component {
         <Card 
         color={this.state.currentCard.color} 
         suit={this.state.currentCard.suit} 
-        rank={this.state.currentCard.rank} />
+        rank={this.state.currentCard.rank} 
+        rule={this.state.currentCard.rule}  />
         <button onClick={this.drawNewCard}>
           Draw new card
         </button>
