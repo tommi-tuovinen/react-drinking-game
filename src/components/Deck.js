@@ -37,7 +37,15 @@ class Deck {
     }
 
     drawCard() {
+        if (!this.cardsLeft()) {
+            return null
+        }
+        
         return this.cards.pop()
+    }
+
+    cardsLeft() {
+        return this.cards.length > 0
     }
 
     // Shuffles array in place by using the modern version of the Fisher–Yates shuffle algorithm.

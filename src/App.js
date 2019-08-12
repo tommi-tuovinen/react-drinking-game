@@ -6,17 +6,26 @@ import Deck from './components/Deck'
 class App extends React.Component {
   constructor() {
     super()
-    this.state = {
-      currentCard: { color: 'black', suit: '-', rank: '-', rule: ''},
-      deck: new Deck(),
+    this.state = this.initialState()
+  }
+
+  initialState() {
+    return {
+      currentCard: { color: 'black', suit: '', rank: '', rule: '?'},
+      deck: new Deck()
     }
   }
 
+  restartGame = () => {
+    this.setState(this.initialState());
+  }
+
   drawNewCard = () => {
+    let card = this.state.deck.drawCard()
+
+    if (card == null) { return }
+
     this.setState(function(state, props) {
-
-      let card = this.state.deck.drawCard()
-
       return {
         currentCard: { 
           color: card.color,
@@ -29,16 +38,29 @@ class App extends React.Component {
   }
 
   render() {
+
+    let actionButton
+
+    if (this.state.deck.cardsLeft()) {
+      actionButton = <button className="button-draw" onClick={this.drawNewCard}>
+        DRAW
+    </button>
+    } else {
+      actionButton = <button className="button-suffle" onClick={this.restartGame}>
+        SUFFLE DECK
+    </button>
+    }
+
     return (
       <div className="app">
+        {this.state.currentCard != null &&
         <Card 
         color={this.state.currentCard.color} 
         suit={this.state.currentCard.suit} 
         rank={this.state.currentCard.rank} 
         rule={this.state.currentCard.rule}  />
-        <button className="button-draw" onClick={this.drawNewCard}>
-          DRAW
-        </button>
+        }
+        {actionButton}
       </div>
     )
   }
