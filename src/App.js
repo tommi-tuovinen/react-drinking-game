@@ -47,7 +47,7 @@ class App extends React.Component {
     </button>
     } else {
       actionButton = <button className="button-suffle" onClick={this.restartGame}>
-        SUFFLE DECK
+        SHUFFLE DECK
     </button>
     }
 
